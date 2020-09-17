@@ -2,8 +2,8 @@
     include "topbit.php";
 
     $showall_sql="SELECT *
-FROM `L1_prac_book_reviews`
-ORDER BY `L1_prac_book_reviews`.`Title` ASC";
+FROM `L1_DBassess_LydWri`
+ORDER BY `L1_DBassess_LydWri`.`Meal` ASC";
     $showall_query= mysqli_query($dbconnect, $showall_sql);
     $showall_rs= mysqli_fetch_assoc($showall_query);
     $count= mysqli_num_rows($showall_query);
@@ -35,15 +35,18 @@ ORDER BY `L1_prac_book_reviews`.`Title` ASC";
                 <!-- Results go here -->
                 <div class="results">
                 
-                <p> Title: <span class="sub_heading"><?php echo $showall_rs['Title']; ?></span>
+                <p> Meal: <span class="sub_heading"><?php echo $showall_rs['Meal']; ?></span>
                 </p>
                 
-                <p> Author: <span class="sub_heading"><?php echo $showall_rs['Author']; ?></span>
+                <p> Course: <span class="sub_heading"><?php echo $showall_rs['Course']; ?></span>
                 </p>
                 
-                <p> Genre: <span class="sub_heading"><?php echo $showall_rs['Genre']; ?></span>
+                <p> Location: <span class="sub_heading"><?php echo $showall_rs['Location']; ?></span>
                 </p>
                 
+                <p> Vegetarian: <span class="sub_heading"><?php echo $showall_rs['Vegetarian']; ?></span>
+                </p>
+                    
                 <p> Rating: <span class="sub_heading">
                     
                     <?php 
@@ -57,7 +60,7 @@ ORDER BY `L1_prac_book_reviews`.`Title` ASC";
                     
                     </span></p>
                 
-                <p><span class="sub_heading">Review / Response</span></p>
+                <p><span class="sub_heading">Review</span></p>
                 
                 <p>
                     <?php echo $showall_rs['Review']; ?>
