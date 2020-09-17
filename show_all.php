@@ -44,8 +44,25 @@ ORDER BY `L1_DBassess_LydWri`.`Meal` ASC";
                 <p> Location: <span class="sub_heading"><?php echo $showall_rs['Location']; ?></span>
                 </p>
                 
-                <p> Vegetarian: <span class="sub_heading"><?php echo $showall_rs['Vegetarian']; ?></span>
-                </p>
+                
+                    <?php
+                    
+                    // check if meal is vegetarian
+                    if ($showall_rs['Vegetarian'] != no)
+                    // only print 'vegetarian' if meal is vegetarian
+                    {
+                        
+                    ?>
+                    
+                    <div>
+                        <i>Vegetarian</i>
+                    </div>
+                    
+                    <?php
+                        
+                    }
+                    ?>
+                
                     
                 <p> Rating: <span class="sub_heading">
                     
