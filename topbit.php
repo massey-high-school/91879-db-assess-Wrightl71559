@@ -24,7 +24,7 @@ if(mysqli_connect_errno()) {
     <meta name="author" content="L Wright">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Foood Reviews</title>
+    <title>Food Reviews</title>
     
     <!-- Edit the link below / replace with your chosen google font -->
     <link href="https://fonts.googleapis.com/css?family=Lato%7cUbuntu" rel="stylesheet"> 
@@ -46,7 +46,7 @@ if(mysqli_connect_errno()) {
         <!-- logo image linking to home page goes here -->
         <a href="index.php">
             <div class="box logo"  title="Click here to go to the Home Page">
-            <img class="img-circle" src="images/spaghetti-2931846_960_720.jpg" width="150" height="150" alt="books logo" />
+            <img class="img-circle" src="images/spaghetti-2931846_960_720.jpg" width="150" height="150" alt="Food logo" />
             
             </div>    <!-- / logo -->
         </a>
