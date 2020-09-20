@@ -58,19 +58,19 @@ if(mysqli_connect_errno()) {
         
         <div class = "box side">
             <h2>Search | <a class="side" href="show_all.php">Show All</a></h2>
-            <i>Type part of the Title / Author name if desired</i>
+            <i>Type part of the Meal name if desired</i>
             
             <hr />
             
-            <!-- Start of title search -->
+            <!-- Start of meal search -->
 
-            <form method="post" action="title_search.php" enctype="multipart/form-data"> 
+            <form method="post" action="meal_search.php" enctype="multipart/form-data"> 
             
-            <input class="search" type="text" name="title" size="40"  value="" required placeholder="Title..."/>
-            <input class="submit" type="submit" name="find_title" value="&#xf002;"/>
+            <input class="search" type="text" name="meal" size="40"  value="" required placeholder="Meal..."/>
+            <input class="submit" type="submit" name="find_meal" value="&#xf002;"/>
             </form>
             
-            <!-- End of title search -->
+            <!-- End of meal search -->
             <hr />
             
             <!-- Start of author search -->

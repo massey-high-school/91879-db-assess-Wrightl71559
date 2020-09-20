@@ -6,13 +6,15 @@ if(isset ($_POST['find_meal']))
     
 {
 
-    // Retrieves meal and snitises it.
+// Retrieves meal and snitises it.
 $meal=test_input(mysqli_real_escape_string($dbconnect, $_POST['meal']));
     
 $find_sql="SELECT *
-FROM `L1_prac_book_reviews`
-WHERE `Meal` LIKE '%$meal%' ORDER BY `Meal` ASC ";
---
+FROM `L1_DBassess_LydWri`
+WHERE `meal` LIKE '%$meal%' ORDER BY `meal` ASC";
+$find_query= mysqli_query($dbconnect, $find_sql);
+$find_rs= mysqli_fetch_assoc($find_query);
+$count= mysqli_num_rows($find_query);
 ?>
         
         <div class="box main">
@@ -41,7 +43,7 @@ WHERE `Meal` LIKE '%$meal%' ORDER BY `Meal` ASC ";
                  <!-- Results go here -->
                 <div class="results">
                 
-                <p> Meal: <span class="sub_heading"><?php echo $showall_rs['Meal']; ?></span></p> 
+                <p> Meal: <span class="sub_heading"><?php echo $find_rs['Meal']; ?></span></p> 
                     <?php
                     
                     // check if meal is vegetarian
@@ -52,7 +54,7 @@ WHERE `Meal` LIKE '%$meal%' ORDER BY `Meal` ASC ";
                     ?>
                     
                     <div>
-                        <i>(Vegetarian)</i>
+                        <i>Vegetarian</i>
                     </div>
                     
                     <?php
@@ -61,10 +63,10 @@ WHERE `Meal` LIKE '%$meal%' ORDER BY `Meal` ASC ";
                     ?>
                 
                 
-                <p> Course: <span class="sub_heading"><?php echo $showall_rs['Course']; ?></span>
+                <p> Course: <span class="sub_heading"><?php echo $find_rs['Course']; ?></span>
                 </p>
                 
-                <p> Location: <span class="sub_heading"><?php echo $showall_rs['Location']; ?></span>
+                <p> Location: <span class="sub_heading"><?php echo $find_rs['Location']; ?></span>
                 </p>
                 
                 
