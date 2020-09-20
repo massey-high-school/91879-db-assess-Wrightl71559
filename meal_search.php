@@ -1,17 +1,23 @@
 <?php 
     include "topbit.php";
 
-    $showall_sql="SELECT *
-FROM `L1_DBassess_LydWri`
-ORDER BY `L1_DBassess_LydWri`.`Meal` ASC";
-    $showall_query= mysqli_query($dbconnect, $showall_sql);
-    $showall_rs= mysqli_fetch_assoc($showall_query);
-    $count= mysqli_num_rows($showall_query);
+// if find button pushed
+if(isset ($_POST['find_meal']))
+    
+{
+
+    // Retrieves meal and snitises it.
+$meal=test_input(mysqli_real_escape_string($dbconnect, $_POST['meal']));
+    
+$find_sql="SELECT *
+FROM `L1_prac_book_reviews`
+WHERE `Meal` LIKE '%$meal%' ORDER BY `Meal` ASC ";
+--
 ?>
         
         <div class="box main">
             
-            <h2>All Items</h2>
+            <h2>Meal search</h2>
             
             <?php
             // check if there are any results
@@ -58,28 +64,11 @@ ORDER BY `L1_DBassess_LydWri`.`Meal` ASC";
                 <p> Course: <span class="sub_heading"><?php echo $showall_rs['Course']; ?></span>
                 </p>
                 
-                
                 <p> Location: <span class="sub_heading"><?php echo $showall_rs['Location']; ?></span>
                 </p>
                 
                 
-                    <?php
-                    
-                    // check if meal is vegetarian
-                    if ($showall_rs['Vegetarian'] == 'yes')
-                    // only print 'vegetarian' if meal is vegetarian
-                    {
-                        
-                    ?>
-                    
-                    <div>
-                        <i>Vegetarian</i>
-                    </div>
-                    
-                    <?php
-                        
-                    }
-                    ?>
+                   
                 
                     
                 <p> Rating: <span class="sub_heading">
@@ -103,15 +92,19 @@ ORDER BY `L1_DBassess_LydWri`.`Meal` ASC";
                 
                 </div> <!--/ end results -->
 
+
                 <br />
             
                 <?php
                     
                 } // end of 'do'
                 
-                while($showall_rs=mysqli_fetch_assoc($showall_query));
+                while($find_rs=mysqli_fetch_assoc($find_query));
             } // end else
             //if there are results, display them
+    
+            }//end isset
+
             ?>
 
 
