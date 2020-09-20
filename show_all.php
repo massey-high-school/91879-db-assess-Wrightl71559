@@ -48,7 +48,7 @@ ORDER BY `L1_DBassess_LydWri`.`Meal` ASC";
                     <?php
                     
                     // check if meal is vegetarian
-                    if ($showall_rs['Vegetarian'] != no)
+                    if ($showall_rs['Vegetarian'] == 'yes')
                     // only print 'vegetarian' if meal is vegetarian
                     {
                         
