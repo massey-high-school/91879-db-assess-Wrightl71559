@@ -47,7 +47,7 @@ $count= mysqli_num_rows($find_query);
                     <?php
                     
                     // check if meal is vegetarian
-                    if ($showall_rs['Vegetarian'] == 'yes')
+                    if ($find_rs['Vegetarian'] == 'yes')
                     // only print 'vegetarian' if meal is vegetarian
                     {
                         
@@ -76,7 +76,7 @@ $count= mysqli_num_rows($find_query);
                 <p> Rating: <span class="sub_heading">
                     
                     <?php 
-                    for ($x=0; $x < $showall_rs['Rating']; $x++)
+                    for ($x=0; $x < $find_rs['Rating']; $x++)
                     
                     {
                         echo "&#9733;";
@@ -89,7 +89,7 @@ $count= mysqli_num_rows($find_query);
                 <p><span class="sub_heading">Review</span></p>
                 
                 <p>
-                    <?php echo $showall_rs['Review']; ?>
+                    <?php echo $find_rs['Review']; ?>
                 </p>
                 
                 </div> <!--/ end results -->

@@ -14,7 +14,7 @@ if ($amount=="exactly")
     
 {
     $find_sql="SELECT *
-    FROM `L1_prac_book_reviews`
+    FROM `L1_DBassess_LydWri`
     WHERE `Rating` =$stars ORDER BY `title` ASC";  
 }
 
@@ -22,13 +22,13 @@ elseif ($amount=="less")
     
 {
    $find_sql="SELECT *
-    FROM `L1_prac_book_reviews`
+    FROM `L1_DBassess_LydWri`
     WHERE `Rating` <=$stars ORDER BY `title` ASC";  
 }
 
 else {
      $find_sql="SELECT *
-    FROM `L1_prac_book_reviews`
+    FROM `L1_DBassess_LydWri`
     WHERE `Rating` >=$stars ORDER BY `title` ASC"; 
 }
 
@@ -65,15 +65,36 @@ $count= mysqli_num_rows($find_query);
                 <!-- Results go here -->
                 <div class="results">
                 
-                <p> Title: <span class="sub_heading"><?php echo $find_rs['Title']; ?></span>
+                <p> Meal: <span class="sub_heading"><?php echo $find_rs['Meal']; ?></span></p> 
+                    <?php
+                    
+                    // check if location is vegetarian
+                    if ($find_rs['Vegetarian'] == 'yes')
+                    // only print 'vegetarian' if location is vegetarian
+                    {
+                        
+                    ?>
+                    
+                    <div>
+                        <i>Vegetarian</i>
+                    </div>
+                    
+                    <?php
+                        
+                    }
+                    ?>
+                
+                
+                <p> Course: <span class="sub_heading"><?php echo $find_rs['Course']; ?></span>
                 </p>
                 
-                <p> Author: <span class="sub_heading"><?php echo $find_rs['Author']; ?></span>
+                <p> Location: <span class="sub_heading"><?php echo $find_rs['Location']; ?></span>
                 </p>
                 
-                <p> Genre: <span class="sub_heading"><?php echo $find_rs['Genre']; ?></span>
-                </p>
                 
+                   
+                
+                    
                 <p> Rating: <span class="sub_heading">
                     
                     <?php 
@@ -87,7 +108,7 @@ $count= mysqli_num_rows($find_query);
                     
                     </span></p>
                 
-                <p><span class="sub_heading">Review / Response</span></p>
+                <p><span class="sub_heading">Review</span></p>
                 
                 <p>
                     <?php echo $find_rs['Review']; ?>

@@ -1,17 +1,25 @@
 <?php 
     include "topbit.php";
 
-    $showall_sql="SELECT *
+// if find button pushed
+if(isset ($_POST['find_location']))
+    
+{
+
+// Retrieves location and snitises it.
+$location=test_input(mysqli_real_escape_string($dbconnect, $_POST['location']));
+    
+$find_sql="SELECT *
 FROM `L1_DBassess_LydWri`
-ORDER BY `L1_DBassess_LydWri`.`Meal` ASC";
-    $showall_query= mysqli_query($dbconnect, $showall_sql);
-    $showall_rs= mysqli_fetch_assoc($showall_query);
-    $count= mysqli_num_rows($showall_query);
+WHERE `location` LIKE '%$location%' ORDER BY `location` ASC";
+$find_query= mysqli_query($dbconnect, $find_sql);
+$find_rs= mysqli_fetch_assoc($find_query);
+$count= mysqli_num_rows($find_query);
 ?>
         
         <div class="box main">
             
-            <h2>All Items</h2>
+            <h2>Location search</h2>
             
             <?php
             // check if there are any results
@@ -35,12 +43,12 @@ ORDER BY `L1_DBassess_LydWri`.`Meal` ASC";
                  <!-- Results go here -->
                 <div class="results">
                 
-                <p> Meal: <span class="sub_heading"><?php echo $showall_rs['Meal']; ?></span></p> 
+                <p> Meal: <span class="sub_heading"><?php echo $find_rs['Meal']; ?></span></p> 
                     <?php
                     
-                    // check if meal is vegetarian
-                    if ($showall_rs['Vegetarian'] == 'yes')
-                    // only print 'vegetarian' if meal is vegetarian
+                    // check if location is vegetarian
+                    if ($find_rs['Vegetarian'] == 'yes')
+                    // only print 'vegetarian' if location is vegetarian
                     {
                         
                     ?>
@@ -55,20 +63,20 @@ ORDER BY `L1_DBassess_LydWri`.`Meal` ASC";
                     ?>
                 
                 
-                <p> Course: <span class="sub_heading"><?php echo $showall_rs['Course']; ?></span>
+                <p> Course: <span class="sub_heading"><?php echo $find_rs['Course']; ?></span>
+                </p>
+                
+                <p> Location: <span class="sub_heading"><?php echo $find_rs['Location']; ?></span>
                 </p>
                 
                 
-                <p> Location: <span class="sub_heading"><?php echo $showall_rs['Location']; ?></span>
-                </p>
-                
-                
+                   
                 
                     
                 <p> Rating: <span class="sub_heading">
                     
                     <?php 
-                    for ($x=0; $x < $showall_rs['Rating']; $x++)
+                    for ($x=0; $x < $find_rs['Rating']; $x++)
                     
                     {
                         echo "&#9733;";
@@ -81,10 +89,11 @@ ORDER BY `L1_DBassess_LydWri`.`Meal` ASC";
                 <p><span class="sub_heading">Review</span></p>
                 
                 <p>
-                    <?php echo $showall_rs['Review']; ?>
+                    <?php echo $find_rs['Review']; ?>
                 </p>
                 
                 </div> <!--/ end results -->
+
 
                 <br />
             
@@ -92,9 +101,12 @@ ORDER BY `L1_DBassess_LydWri`.`Meal` ASC";
                     
                 } // end of 'do'
                 
-                while($showall_rs=mysqli_fetch_assoc($showall_query));
+                while($find_rs=mysqli_fetch_assoc($find_query));
             } // end else
             //if there are results, display them
+    
+            }//end isset
+
             ?>
 
 

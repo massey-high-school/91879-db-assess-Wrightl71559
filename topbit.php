@@ -58,7 +58,7 @@ if(mysqli_connect_errno()) {
         
         <div class = "box side">
             <h2>Search | <a class="side" href="show_all.php">Show All</a></h2>
-            <i>Type part of the Meal name if desired</i>
+            <i>Type part of the Meal/ Location's name if desired</i>
             
             <hr />
             
@@ -73,34 +73,47 @@ if(mysqli_connect_errno()) {
             <!-- End of meal search -->
             <hr />
             
-            <!-- Start of author search -->
+            <!-- Start of location search -->
 
-            <form method="post" action="author_search.php" enctype="multipart/form-data"> 
+            <form method="post" action="location_search.php" enctype="multipart/form-data"> 
             
-            <input class="search" type="text" name="author" size="40"  value="" required placeholder="Author..."/>
-            <input class="submit" type="submit" name="find_author" value="&#xf002;"/>
+            <input class="search" type="text" name="location" size="40"  value="" required placeholder="Location..."/>
+            <input class="submit" type="submit" name="find_location" value="&#xf002;"/>
             </form>
             
-            <!-- End of author search -->
+            <!-- End of location search -->
             <hr/>
             
-            <!-- Start of genre search -->
-            <i>Use the dropdown menus to search by Genre or Rating</i>
-            
-            <form method="post" action="genre_search.php" enctype="multipart/form-data"> 
+             <i>Use the dropdown menus to search by Vegetarian options, Course or Rating</i>
+            <hr/>
+            <!-- Start of Vegetarian search -->
+            <form method="post" action="vegetarian_search.php" enctype="multipart/form-data"> 
             
            
-            <select name="genre" class="full_width" required>
-                <option value="" disabled selected>Genre...</option>
-                <option value="Sci Fi">Science Fiction</option>
-                <option value="Humour">Humour</option>
-                <option value="Historical Fiction">Historical Fiction</option>
-                <option value="Non Fiction">Non Fiction</option>
+            <select name="vegetarian" class="full_width" required>
+                <option value="" disabled selected>Vegetarian...</option>
+                <option value="yes">Vegetarian</option>
             </select>
                 
-            <input class="submit" type="submit" name="find_genre" value="&#xf002;"/>
+            <input class="submit" type="submit" name="find_vegetarian" value="&#xf002;"/>
             </form>   
-            <!-- End of genre search -->
+            <!-- end of vegetarian search -->
+             <hr/>           
+
+            <!-- Start of course search -->
+            <form method="post" action="course_search.php" enctype="multipart/form-data"> 
+            
+           
+            <select name="course" class="full_width" required>
+                <option value="" disabled selected>Course...</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+            </select>
+                
+            <input class="submit" type="submit" name="find_course" value="&#xf002;"/>
+            </form>   
+            <!-- End of course search -->
             <hr />
             
             <!-- Start of ratings form -->
