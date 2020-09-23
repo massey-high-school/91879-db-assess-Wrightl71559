@@ -15,7 +15,7 @@ if ($amount=="exactly")
 {
     $find_sql="SELECT *
     FROM `L1_DBassess_LydWri`
-    WHERE `Rating` =$stars ORDER BY `title` ASC";  
+    WHERE `rating` =$stars ORDER BY `rating` ASC";  
 }
 
 elseif ($amount=="less")
@@ -23,13 +23,13 @@ elseif ($amount=="less")
 {
    $find_sql="SELECT *
     FROM `L1_DBassess_LydWri`
-    WHERE `Rating` <=$stars ORDER BY `title` ASC";  
+    WHERE `rating` <=$stars ORDER BY `rating` ASC";  
 }
 
 else {
      $find_sql="SELECT *
     FROM `L1_DBassess_LydWri`
-    WHERE `Rating` >=$stars ORDER BY `title` ASC"; 
+    WHERE `rating` >=$stars ORDER BY `rating` ASC"; 
 }
 
 // runs query.    
