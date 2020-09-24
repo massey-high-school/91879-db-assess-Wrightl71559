@@ -30,7 +30,7 @@ if(mysqli_connect_errno()) {
     <link href="https://fonts.googleapis.com/css?family=Lato%7cUbuntu" rel="stylesheet"> 
     
     <!-- Edit the name of your style sheet - 'foo' is not a valid name!! -->
-    <link rel="stylesheet" href="css/bookstyle.css"> 
+    <link rel="stylesheet" href="css/style.css"> 
     <link rel="stylesheet" href="css/font-awesome.min.css">
     
 </head>
