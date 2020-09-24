@@ -63,13 +63,13 @@ body {
 
 .side {
     grid-area: side;
-    background-color: #C2FFCA; /* light green */
+    background-color: #A3F6D2; /* light green */
     color: #000;
 }
 
 .main {
     grid-area: main;
-    background-color: #B8E1FF;  /* baby blue */
+    background-color: #E2C2F2;  /* light purple */
     border: solid 1px #CCC;
 }
 
@@ -118,13 +118,13 @@ a:hover{color: #000;}    /* Black*/
 /* Sub Heading Formatting */
 .sub_heading {
     font-family: 'Ubuntu', sans-serif;
-    color: #593849; /* purple */
+    color: #103942; /* dark blue */
     font-weight: bold;
 }
 
 /* Results Box Formatting */
 .results {
-    background-color: #E3D6EA; /* light purple */
+    background-color: #B7DFEB; /* light blue */
     border-radius: 10px;
     border: 1px solid #000;
     padding: 5px;
